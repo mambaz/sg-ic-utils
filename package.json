@@ -1,0 +1,30 @@
+{
+    "name": "sg-ic-utils",
+    "version": "1.0.0",
+    "description": "Utility module for Singapore ICs",
+    "main": "index.js",
+    "scripts": {
+      "test": "mocha"
+    },
+    "keywords": [
+      "Singapore",
+      "IC",
+      "utilities"
+    ],
+    "author": "Shan CHINNANANCHI",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mambaz/sg-ic-utils.git"
+    },
+    "bugs": {
+      "url": "https://github.com/mambaz/sg-ic-utils/issues"
+    },
+    "homepage": "https://github.com/mambaz/sg-ic-utils",
+    "dependencies": {},
+    "devDependencies": {
+      "chai": "^3.5.0",
+      "mocha": "^10.2.0"
+    }
+}
+  
