@@ -1,5 +1,5 @@
 const chai = require('chai');
-const { generateDummySGICs, validateSGIC } = require('../index');
+const { generateDummySGICs, validateSGIC, maskString } = require('../index');
 
 const expect = chai.expect;
 
@@ -33,5 +33,40 @@ describe('SG IC Utils Module', () => {
       const result = validateSGIC(invalidSGIC);
       expect(result).to.be.false;
     });
+  });
+});
+
+describe('maskString', () => {
+  it('should mask characters within the specified range', () => {
+    const inputString = 'F8711786M';
+
+    // Test with default range [4]
+    const resultDefault = maskString(inputString);
+    expect(resultDefault).to.equal('*****786M');
+
+    // Test with custom range [2, 6]
+    const resultCustom = maskString(inputString, [2, 6]);
+    expect(resultCustom).to.equal('F8****86M');
+  });
+
+  it('should handle empty string gracefully', () => {
+    const result = maskString('');
+    expect(result).to.equal('');
+  });
+
+  it('should handle negative visibleRange gracefully', () => {
+    const inputString = 'F8711786M';
+
+    // Test with negative visibleRange
+    const result = maskString(inputString, [-2]);
+    expect(result).to.equal('F8*******');
+  });
+
+  it('should handle visibleRange exceeding string length gracefully', () => {
+    const inputString = 'F8711786M';
+
+    // Test with visibleRange exceeding string length
+    const result = maskString(inputString, [0, 20]);
+    expect(result).to.equal('*********');
   });
 });

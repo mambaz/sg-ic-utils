@@ -25,20 +25,30 @@ console.log('Is Valid SGIC?', isValid);
 const dummySGICs = generateDummySGICs(5);
 console.log('Generated SGICc:', dummySGICs);
 
+const inputString = 'F8711786M';
+const maskedIC = maskString(inputString);
+console.log(`Masked IC: ${maskedIC}`); // Output: '*****786M'
+
 ```
 
 ### Modules 1: `generateDummySGICs(count = 1)`
 
 Generates an array of random Singapore ICs.
-`count (optional)`: Number of ICs to generate. Default is `1`.
+- `count (optional)`: Number of ICs to generate. Default is `1`.
 
 ### Modules 2: `validateSGIC(sgic: string): boolean`
 
 Validates the format of a given Singapore IC.
 
-`sgic`: The Singapore IC to validate.
+- `sgic`: The Singapore IC to validate.
 
 Returns `true` if the SGIC is valid, `false` otherwise.
+
+### Modules 3: `maskString(inputString, visibleRange = [0, -4])`
+Masks characters within the specified range in a string.
+
+- `inputString`: The input string to mask.
+- `visibleRange` (optional): An array specifying the visible range. Default is `[0, -4]`.
 
 # Disclaimer
 
