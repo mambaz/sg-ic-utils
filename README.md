@@ -11,22 +11,18 @@ npm install sg-ic-utils --save
 ## Usage
 
 ```js
-const { generateDummySGICs, validateSGIC } = require('sg-ic-utils');
+const { generateDummySGICs, validateSGIC, maskString } = require('sg-ic-utils');
 
-// Example: Generate a single SGIC
 const singleSGIC = generateDummySGICs();
 console.log('Generated SGIC:', singleSGIC);
 
-// Example: Validate an SGIC
+const dummySGICs = generateDummySGICs(5);
+console.log('Generated SGICs:', dummySGICs);
+
 const isValid = validateSGIC(singleSGIC);
 console.log('Is Valid SGIC?', isValid);
 
-// Example: Generate a many dummy SGICs
-const dummySGICs = generateDummySGICs(5);
-console.log('Generated SGICc:', dummySGICs);
-
-const inputString = 'A1234567B';
-const maskedIC = maskString(inputString);
+const maskedIC = maskString('A1234567B');
 console.log(`Masked IC: ${maskedIC}`); // Output: '*****567B'
 
 ```
