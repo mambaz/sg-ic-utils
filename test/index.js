@@ -38,15 +38,15 @@ describe('SG IC Utils Module', () => {
 
 describe('maskString', () => {
   it('should mask characters within the specified range', () => {
-    const inputString = 'F8711786M';
+    const inputString = 'F1234567M';
 
     // Test with default range [4]
     const resultDefault = maskString(inputString);
-    expect(resultDefault).to.equal('*****786M');
+    expect(resultDefault).to.equal('*****567M');
 
     // Test with custom range [2, 6]
     const resultCustom = maskString(inputString, [2, 6]);
-    expect(resultCustom).to.equal('F8****86M');
+    expect(resultCustom).to.equal('F1****67M');
   });
 
   it('should handle empty string gracefully', () => {
@@ -55,15 +55,15 @@ describe('maskString', () => {
   });
 
   it('should handle negative visibleRange gracefully', () => {
-    const inputString = 'F8711786M';
+    const inputString = 'F1234567M';
 
     // Test with negative visibleRange
     const result = maskString(inputString, [-2]);
-    expect(result).to.equal('F8*******');
+    expect(result).to.equal('F1*******');
   });
 
   it('should handle visibleRange exceeding string length gracefully', () => {
-    const inputString = 'F8711786M';
+    const inputString = 'F1234567M';
 
     // Test with visibleRange exceeding string length
     const result = maskString(inputString, [0, 20]);

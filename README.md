@@ -25,9 +25,9 @@ console.log('Is Valid SGIC?', isValid);
 const dummySGICs = generateDummySGICs(5);
 console.log('Generated SGICc:', dummySGICs);
 
-const inputString = 'F8711786M';
+const inputString = 'A1234567B';
 const maskedIC = maskString(inputString);
-console.log(`Masked IC: ${maskedIC}`); // Output: '*****786M'
+console.log(`Masked IC: ${maskedIC}`); // Output: '*****567B'
 
 ```
 
